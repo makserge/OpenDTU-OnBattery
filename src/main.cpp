@@ -32,6 +32,7 @@
 #include "PowerLimiter.h"
 #include "defaults.h"
 #include <solarcharger/Controller.h>
+#include <thermostat/Controller.h>
 #include <Arduino.h>
 #include <LittleFS.h>
 #include <TaskScheduler.h>
@@ -151,6 +152,7 @@ void setup()
     PowerLimiter.init(scheduler);
     GridCharger.init(scheduler);
     Battery.init(scheduler);
+    Thermostat.init(scheduler);
 
     ESP_LOGI(TAG, "Startup complete");
 }

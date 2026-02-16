@@ -1,0 +1,48 @@
+[
+    {
+        "name": "Waveshare ESP32 S3-ETH Solar controller",
+        "links": [
+            {
+                "name": "Waveshare Wiki",
+                "url": "https://www.waveshare.com"
+            }
+        ],
+        "w5500": {
+            "sclk": 13,
+            "mosi": 11,
+            "miso": 12,
+            "cs": 14,
+            "int": 10,
+            "rst": 9
+        },
+        "nrf24": {
+            "sclk": 13,
+            "mosi": 11,
+            "miso": 12,
+            "cs": 1,
+            "ce": 2,
+            "irq": -1
+        },
+        "thermostat": {
+            "si7021_data": 3,
+            "heating_output": 4,
+            "cooling_output": 5
+        },
+        "bl0942": {
+            "uart_tx": 6,
+            "uart_rx": 7
+        },
+        "relays": {
+            "output1": 40,
+            "output2": 41,
+            "output3": 42
+        },
+        "display": {
+            "data": -1,
+            "clk": -1,
+            "reset": -1,
+            "dc": -1,
+            "type": 0
+        }
+    }
+]
