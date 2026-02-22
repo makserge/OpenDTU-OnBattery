@@ -17,15 +17,21 @@
 
 void WebApiPowerMeterClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    _server = &server;
-
-    _server->on("/api/powermeter/status", HTTP_GET, std::bind(&WebApiPowerMeterClass::onStatus, this, _1));
-    _server->on("/api/powermeter/config", HTTP_GET, std::bind(&WebApiPowerMeterClass::onAdminGet, this, _1));
-    _server->on("/api/powermeter/config", HTTP_POST, std::bind(&WebApiPowerMeterClass::onAdminPost, this, _1));
-    _server->on("/api/powermeter/testhttpjsonrequest", HTTP_POST, std::bind(&WebApiPowerMeterClass::onTestHttpJsonRequest, this, _1));
-    _server->on("/api/powermeter/testhttpsmlrequest", HTTP_POST, std::bind(&WebApiPowerMeterClass::onTestHttpSmlRequest, this, _1));
+    server.on("/api/powermeter/status", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onStatus(request); 
+    });
+    server.on("/api/powermeter/config", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onAdminGet(request); 
+    });
+    server.on("/api/powermeter/config", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onAdminPost(request); 
+    });
+    server.on("/api/powermeter/testhttpjsonrequest", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onTestHttpJsonRequest(request); 
+    });
+    server.on("/api/powermeter/testhttpsmlrequest", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onTestHttpSmlRequest(request); 
+    });
 }
 
 void WebApiPowerMeterClass::onStatus(AsyncWebServerRequest* request)

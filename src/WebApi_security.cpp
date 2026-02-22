@@ -11,11 +11,15 @@
 
 void WebApiSecurityClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    server.on("/api/security/config", HTTP_GET, std::bind(&WebApiSecurityClass::onSecurityGet, this, _1));
-    server.on("/api/security/config", HTTP_POST, std::bind(&WebApiSecurityClass::onSecurityPost, this, _1));
-    server.on("/api/security/authenticate", HTTP_GET, std::bind(&WebApiSecurityClass::onAuthenticateGet, this, _1));
+    server.on("/api/security/config", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onSecurityGet(request); 
+    });
+    server.on("/api/security/config", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onSecurityPost(request); 
+    });
+    server.on("/api/security/authenticate", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onAuthenticateGet(request); 
+    });
 }
 
 void WebApiSecurityClass::onSecurityGet(AsyncWebServerRequest* request)

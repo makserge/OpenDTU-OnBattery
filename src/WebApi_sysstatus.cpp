@@ -17,9 +17,9 @@
 
 void WebApiSysstatusClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    server.on("/api/system/status", HTTP_GET, std::bind(&WebApiSysstatusClass::onSystemStatus, this, _1));
+    server.on("/api/system/status", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onSystemStatus(request); 
+    });
 }
 
 void WebApiSysstatusClass::onSystemStatus(AsyncWebServerRequest* request)
@@ -85,7 +85,7 @@ void WebApiSysstatusClass::onSystemStatus(AsyncWebServerRequest* request)
     root["config_version"] = version;
     root["config_version_onbattery"] = CONFIG_VERSION_ONBATTERY;
     root["git_hash"] = __COMPILED_GIT_HASH__;
-    root["git_branch"] = __COMPILED_GIT_BRANCH__;
+    root["git_branch"] = "";//__COMPILED_GIT_BRANCH__;
     root["pioenv"] = PIOENV;
 
     root["uptime"] = esp_timer_get_time() / 1000000;

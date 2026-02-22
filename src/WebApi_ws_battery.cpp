@@ -29,8 +29,10 @@ void WebApiWsBatteryLiveClass::init(AsyncWebServer& server, Scheduler& scheduler
     using std::placeholders::_6;
 
     _server = &server;
-    _server->on("/api/batterylivedata/status", HTTP_GET, std::bind(&WebApiWsBatteryLiveClass::onLivedataStatus, this, _1));
-
+    server.on("/api/batterylivedata/status", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onLivedataStatus(request); 
+    });
+    
     _server->addHandler(&_ws);
     _ws.onEvent(std::bind(&WebApiWsBatteryLiveClass::onWebsocketEvent, this, _1, _2, _3, _4, _5, _6));
 

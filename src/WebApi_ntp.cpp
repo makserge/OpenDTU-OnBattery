@@ -13,13 +13,21 @@
 
 void WebApiNtpClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    server.on("/api/ntp/status", HTTP_GET, std::bind(&WebApiNtpClass::onNtpStatus, this, _1));
-    server.on("/api/ntp/config", HTTP_GET, std::bind(&WebApiNtpClass::onNtpAdminGet, this, _1));
-    server.on("/api/ntp/config", HTTP_POST, std::bind(&WebApiNtpClass::onNtpAdminPost, this, _1));
-    server.on("/api/ntp/time", HTTP_GET, std::bind(&WebApiNtpClass::onNtpTimeGet, this, _1));
-    server.on("/api/ntp/time", HTTP_POST, std::bind(&WebApiNtpClass::onNtpTimePost, this, _1));
+    server.on("/api/ntp/status", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onNtpStatus(request); 
+    });
+    server.on("/api/ntp/config", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onNtpAdminGet(request); 
+    });
+    server.on("/api/ntp/config", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onNtpAdminPost(request); 
+    });
+    server.on("/api/ntp/time", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onNtpTimeGet(request); 
+    });
+    server.on("/api/ntp/time", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onNtpTimePost(request); 
+    });
 }
 
 void WebApiNtpClass::onNtpStatus(AsyncWebServerRequest* request)

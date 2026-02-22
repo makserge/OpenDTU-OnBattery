@@ -16,10 +16,12 @@ WebApiDtuClass::WebApiDtuClass()
 
 void WebApiDtuClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    server.on("/api/dtu/config", HTTP_GET, std::bind(&WebApiDtuClass::onDtuAdminGet, this, _1));
-    server.on("/api/dtu/config", HTTP_POST, std::bind(&WebApiDtuClass::onDtuAdminPost, this, _1));
+    server.on("/api/dtu/config", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onDtuAdminGet(request); 
+    });
+    server.on("/api/dtu/config", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onDtuAdminPost(request); 
+    });
 
     scheduler.addTask(_applyDataTask);
 }

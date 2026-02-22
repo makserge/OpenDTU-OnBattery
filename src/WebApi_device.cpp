@@ -14,10 +14,12 @@
 
 void WebApiDeviceClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    server.on("/api/device/config", HTTP_GET, std::bind(&WebApiDeviceClass::onDeviceAdminGet, this, _1));
-    server.on("/api/device/config", HTTP_POST, std::bind(&WebApiDeviceClass::onDeviceAdminPost, this, _1));
+    server.on("/api/device/config", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onDeviceAdminGet(request); 
+    });
+    server.on("/api/device/config", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onDeviceAdminPost(request); 
+    });
 }
 
 void WebApiDeviceClass::onDeviceAdminGet(AsyncWebServerRequest* request)

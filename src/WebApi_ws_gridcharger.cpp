@@ -28,8 +28,10 @@ void WebApiWsGridChargerLiveClass::init(AsyncWebServer& server, Scheduler& sched
     using std::placeholders::_6;
 
     _server = &server;
-    _server->on("/api/gridchargerlivedata/status", HTTP_GET, std::bind(&WebApiWsGridChargerLiveClass::onLivedataStatus, this, _1));
-
+    server.on("/api/gridchargerlivedata/status", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onLivedataStatus(request); 
+    });
+    
     _server->addHandler(&_ws);
     _ws.onEvent(std::bind(&WebApiWsGridChargerLiveClass::onWebsocketEvent, this, _1, _2, _3, _4, _5, _6));
 

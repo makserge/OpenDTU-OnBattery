@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <AsyncJson.h>
+#include <optional>
 
 namespace SolarChargers {
 

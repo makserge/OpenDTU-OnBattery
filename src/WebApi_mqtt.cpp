@@ -21,11 +21,15 @@
 
 void WebApiMqttClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    server.on("/api/mqtt/status", HTTP_GET, std::bind(&WebApiMqttClass::onMqttStatus, this, _1));
-    server.on("/api/mqtt/config", HTTP_GET, std::bind(&WebApiMqttClass::onMqttAdminGet, this, _1));
-    server.on("/api/mqtt/config", HTTP_POST, std::bind(&WebApiMqttClass::onMqttAdminPost, this, _1));
+    server.on("/api/mqtt/status", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onMqttStatus(request); 
+    });
+    server.on("/api/mqtt/config", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onMqttAdminGet(request); 
+    });
+    server.on("/api/mqtt/config", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onMqttAdminPost(request); 
+    });
 }
 
 void WebApiMqttClass::onMqttStatus(AsyncWebServerRequest* request)

@@ -11,12 +11,12 @@
 
 void WebApiSolarChargerlass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    _server = &server;
-
-    _server->on("/api/solarcharger/config", HTTP_GET, std::bind(&WebApiSolarChargerlass::onAdminGet, this, _1));
-    _server->on("/api/solarcharger/config", HTTP_POST, std::bind(&WebApiSolarChargerlass::onAdminPost, this, _1));
+    server.on("/api/solarcharger/config", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onAdminGet(request); 
+    });
+    server.on("/api/solarcharger/config", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onAdminPost(request); 
+    });
 }
 
 void WebApiSolarChargerlass::onAdminGet(AsyncWebServerRequest* request)

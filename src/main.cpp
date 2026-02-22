@@ -53,11 +53,13 @@ void setup()
     while (!Serial)
         yield();
 #endif
+    Serial.setDebugOutput(true);
+
     MessageOutput.init(scheduler);
 
     // For now, the log levels are just hard coded
-    esp_log_level_set("*", ESP_LOG_VERBOSE);
-    esp_log_level_set("CORE", ESP_LOG_ERROR);
+    esp_log_set_vprintf(vprintf); 
+    esp_log_level_set("*", ESP_LOG_INFO); 
 
     ESP_LOGI(TAG, "Starting OpenDTU");
 
@@ -88,9 +90,6 @@ void setup()
         Configuration.migrateOnBattery();
     }
 
-    // Set configured log levels
-    Logging.applyLogLevels();
-    esp_log_level_set(TAG, ESP_LOG_VERBOSE);
 
     // Read languate pack
     ESP_LOGI(TAG, "Reading language pack...");

@@ -10,10 +10,12 @@
 
 void WebApiPowerClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    server.on("/api/power/status", HTTP_GET, std::bind(&WebApiPowerClass::onPowerStatus, this, _1));
-    server.on("/api/power/config", HTTP_POST, std::bind(&WebApiPowerClass::onPowerPost, this, _1));
+    server.on("/api/power/status", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onPowerStatus(request); 
+    });
+    server.on("/api/power/config", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onPowerPost(request); 
+    });
 }
 
 void WebApiPowerClass::onPowerStatus(AsyncWebServerRequest* request)

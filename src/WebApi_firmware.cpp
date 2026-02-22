@@ -24,7 +24,9 @@ void WebApiFirmwareClass::init(AsyncWebServer& server, Scheduler& scheduler)
         std::bind(&WebApiFirmwareClass::onFirmwareUpdateFinish, this, _1),
         std::bind(&WebApiFirmwareClass::onFirmwareUpdateUpload, this, _1, _2, _3, _4, _5, _6));
 
-    server.on("/api/firmware/status", HTTP_GET, std::bind(&WebApiFirmwareClass::onFirmwareStatus, this, _1));
+    server.on("/api/firmware/status", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onFirmwareStatus(request); 
+    });        
 }
 
 bool WebApiFirmwareClass::otaSupported() const

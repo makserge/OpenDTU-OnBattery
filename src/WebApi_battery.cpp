@@ -15,13 +15,15 @@
 
 void WebApiBatteryClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    _server = &server;
-
-    _server->on("/api/battery/status", HTTP_GET, std::bind(&WebApiBatteryClass::onStatus, this, _1));
-    _server->on("/api/battery/config", HTTP_GET, std::bind(&WebApiBatteryClass::onAdminGet, this, _1));
-    _server->on("/api/battery/config", HTTP_POST, std::bind(&WebApiBatteryClass::onAdminPost, this, _1));
+    server.on("/api/battery/status", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onStatus(request); 
+    });
+    server.on("/api/battery/config", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onAdminGet(request); 
+    });
+    server.on("/api/battery/config", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onAdminPost(request); 
+    });
 }
 
 void WebApiBatteryClass::onStatus(AsyncWebServerRequest* request)

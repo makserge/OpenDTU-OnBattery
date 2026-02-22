@@ -10,12 +10,13 @@
 
 // Internal Arduino functions from WiFiGeneric
 void tcpipInit();
-void add_esp_interface_netif(esp_interface_t interface, esp_netif_t* esp_netif);
+//void add_esp_interface_netif(esp_interface_t interface, esp_netif_t* esp_netif);
 
 W5500::W5500(spi_device_handle_t spi, gpio_num_t pin_int)
     : eth_handle(nullptr)
     , eth_netif(nullptr)
 {
+    /*
     // Arduino function to start networking stack if not already started
     tcpipInit();
 
@@ -49,6 +50,7 @@ W5500::W5500(spi_device_handle_t spi, gpio_num_t pin_int)
     add_esp_interface_netif(ESP_IF_ETH, eth_netif);
 
     ESP_ERROR_CHECK(esp_eth_start(eth_handle));
+    */
 }
 
 W5500::~W5500()

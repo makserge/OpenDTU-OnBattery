@@ -15,9 +15,9 @@ static const char* TAG = "webapi";
 
 void WebApiPrometheusClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    server.on("/api/prometheus/metrics", HTTP_GET, std::bind(&WebApiPrometheusClass::onPrometheusMetricsGet, this, _1));
+    server.on("/api/prometheus/metrics", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onPrometheusMetricsGet(request); 
+    });
 }
 
 void WebApiPrometheusClass::onPrometheusMetricsGet(AsyncWebServerRequest* request)

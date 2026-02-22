@@ -11,9 +11,9 @@
 
 void WebApiMaintenanceClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    server.on("/api/maintenance/reboot", HTTP_POST, std::bind(&WebApiMaintenanceClass::onRebootPost, this, _1));
+    server.on("/api/maintenance/reboot", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onRebootPost(request); 
+    });
 }
 
 void WebApiMaintenanceClass::onRebootPost(AsyncWebServerRequest* request)

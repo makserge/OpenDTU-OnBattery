@@ -5,6 +5,7 @@
 #include "mbedtls/md5.h"
 #include <base64.h>
 #include <ESPmDNS.h>
+#include <WiFi.h>
 
 template<typename... Args>
 void HttpGetter::logError(char const* format, Args... args) {
@@ -95,7 +96,7 @@ HttpRequestResult HttpGetter::performGetRequest()
             ipaddr = MDNS.queryHost(_host); // INADDR_NONE if failed
         }
 
-        if (ipaddr == INADDR_NONE && !WiFiGenericClass::hostByName(_host.c_str(), ipaddr)) {
+        if (ipaddr == INADDR_NONE && !WiFi.hostByName(_host.c_str(), ipaddr)) {
             logError("failed to resolve host '%s' via DNS", _host.c_str());
             return { false };
         }
@@ -221,9 +222,9 @@ static String md5(const String& data) {
 
     mbedtls_md5_context ctx;
     mbedtls_md5_init(&ctx);
-    mbedtls_md5_starts_ret(&ctx);
-    mbedtls_md5_update_ret(&ctx, reinterpret_cast<const unsigned char*>(data.c_str()), data.length());
-    mbedtls_md5_finish_ret(&ctx, hash);
+    mbedtls_md5_starts(&ctx);
+    mbedtls_md5_update(&ctx, reinterpret_cast<const unsigned char*>(data.c_str()), data.length());
+    mbedtls_md5_finish(&ctx, hash);
     mbedtls_md5_free(&ctx);
 
     return bin2hex<sizeof(hash)>(hash);

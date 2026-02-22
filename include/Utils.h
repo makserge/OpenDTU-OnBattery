@@ -5,6 +5,7 @@
 #include <LittleFS.h>
 #include <cstdint>
 #include <utility>
+#include <optional>
 
 class Utils {
 public:

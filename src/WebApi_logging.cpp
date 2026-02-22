@@ -14,10 +14,12 @@
 
 void WebApiLoggingClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    server.on("/api/logging/config", HTTP_GET, std::bind(&WebApiLoggingClass::onLoggingAdminGet, this, _1));
-    server.on("/api/logging/config", HTTP_POST, std::bind(&WebApiLoggingClass::onLoggingAdminPost, this, _1));
+    server.on("/api/logging/config", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onLoggingAdminGet(request); 
+    });
+    server.on("/api/logging/config", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onLoggingAdminPost(request); 
+    });
 }
 
 void WebApiLoggingClass::onLoggingAdminGet(AsyncWebServerRequest* request)

@@ -15,14 +15,24 @@
 
 void WebApiInverterClass::init(AsyncWebServer& server, Scheduler& scheduler)
 {
-    using std::placeholders::_1;
-
-    server.on("/api/inverter/list", HTTP_GET, std::bind(&WebApiInverterClass::onInverterList, this, _1));
-    server.on("/api/inverter/add", HTTP_POST, std::bind(&WebApiInverterClass::onInverterAdd, this, _1));
-    server.on("/api/inverter/edit", HTTP_POST, std::bind(&WebApiInverterClass::onInverterEdit, this, _1));
-    server.on("/api/inverter/del", HTTP_POST, std::bind(&WebApiInverterClass::onInverterDelete, this, _1));
-    server.on("/api/inverter/order", HTTP_POST, std::bind(&WebApiInverterClass::onInverterOrder, this, _1));
-    server.on("/api/inverter/stats_reset", HTTP_GET, std::bind(&WebApiInverterClass::onInverterStatReset, this, _1));
+    server.on("/api/inverter/list", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onInverterList(request); 
+    });
+    server.on("/api/inverter/add", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onInverterAdd(request); 
+    });
+    server.on("/api/inverter/edit", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onInverterEdit(request); 
+    });
+    server.on("/api/inverter/del", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onInverterDelete(request); 
+    });
+    server.on("/api/inverter/order", HTTP_POST, [this](AsyncWebServerRequest *request){ 
+        this->onInverterOrder(request); 
+    });
+    server.on("/api/inverter/stats_reset", HTTP_GET, [this](AsyncWebServerRequest *request){ 
+        this->onInverterStatReset(request); 
+    });
 }
 
 void WebApiInverterClass::onInverterList(AsyncWebServerRequest* request)

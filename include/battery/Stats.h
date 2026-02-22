@@ -6,12 +6,15 @@
 #include <AsyncJson.h>
 #include <cfloat>
 #include <string>
+#include <optional>
 
 namespace Batteries {
 
 // mandatory interface for all kinds of batteries
 class Stats {
 public:
+    virtual ~Stats() {} 
+
     std::optional<String> const& getManufacturer() const { return _oManufacturer; }
     virtual std::optional<String> getHassDeviceName() const { return _oManufacturer; }
 
