@@ -8,6 +8,7 @@ enum WebApiError {
     GenericDataTooLarge, // not used anymore
     GenericParseError,
     GenericValueMissing,
+    GenericValueInvalid,
     GenericWriteFailed,
     GenericInternalServerError,
 

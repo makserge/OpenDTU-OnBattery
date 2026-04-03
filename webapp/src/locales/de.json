@@ -2,6 +2,7 @@
     "menu": {
         "LiveView": "Live-Ansicht",
         "Settings": "Einstellungen",
+        "ThermostatSettings": "Thermostat",
         "NetworkSettings": "Netzwerk",
         "NTPSettings": "NTP",
         "MQTTSettings": "MQTT",
@@ -1301,5 +1302,18 @@
                 "invalid": "@:battery.invalid"
             }
         }
+    },
+    "thermostat": {
+        "CurrentStatus": "Live-Status",
+        "CurrentTemp": "Aktuelle Temperatur",
+        "CurrentHum": "Aktuelle Luftfeuchtigkeit",
+        "StatusHeating": "HEIZEN",
+        "StatusCooling": "KÜHLEN",
+        "StatusIdle": "STANDBY",
+        "Disconnected": "OFFLINE",
+        "GeneralSettings": "Allgemeine Einstellungen",
+        "HeaterThreshold": "Heizschwelle",
+        "CoolerThreshold": "Kühlschwelle",
+        "EnableControl": "Thermostat aktivieren"
     }
 }

@@ -265,6 +265,13 @@ void ConfigurationClass::serializeGridChargerTruckiConfig(GridChargerTruckiConfi
     target["password"] = source.Password;
 }
 
+void ConfigurationClass::serializeThermostatConfig(ThermostatConfig const& source, JsonObject& target) 
+{
+    target["enabled"]   = source.Enabled;
+    target["low_temp"]  = source.LowTemp;
+    target["high_temp"] = source.HighTemp;
+}
+
 bool ConfigurationClass::write()
 {
     File f = LittleFS.open(CONFIG_FILENAME, "w");
@@ -456,6 +463,9 @@ bool ConfigurationClass::write()
     JsonObject gridcharger_trucki = gridcharger["trucki"].to<JsonObject>();
     serializeGridChargerTruckiConfig(config.GridCharger.Trucki, gridcharger_trucki);
 
+    JsonObject thermostat = doc["thermostat"].to<JsonObject>();
+    serializeThermostatConfig(config.Thermostat, thermostat);
+    
     if (!Utils::checkJsonAlloc(doc, __FUNCTION__, __LINE__)) {
         return false;
     }
@@ -698,6 +708,13 @@ void ConfigurationClass::deserializeGridChargerTruckiConfig(JsonObject const& so
     strlcpy(target.Password, source["password"] | "", sizeof(target.Password));
 }
 
+void ConfigurationClass::deserializeThermostatConfig(JsonObject const& source, ThermostatConfig& target) 
+{
+    target.Enabled  = source["enabled"] | false;
+    target.LowTemp  = source["low_temp"] | 15.0f;
+    target.HighTemp = source["high_temp"] | 35.0f;
+}
+
 bool ConfigurationClass::read()
 {
     File f = LittleFS.open(CONFIG_FILENAME, "r", false);
@@ -912,6 +929,9 @@ bool ConfigurationClass::read()
     deserializeGridChargerCanConfig(gridcharger["can"], config.GridCharger.Can);
     deserializeGridChargerHuaweiConfig(gridcharger["huawei"], config.GridCharger.Huawei);
     deserializeGridChargerTruckiConfig(gridcharger["trucki"], config.GridCharger.Trucki);
+
+    JsonObject thermostat = doc["thermostat"];
+    deserializeThermostatConfig(thermostat, config.Thermostat);
 
     f.close();
 

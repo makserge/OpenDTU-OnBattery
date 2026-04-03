@@ -2,6 +2,7 @@
     "menu": {
         "LiveView": "Live View",
         "Settings": "Settings",
+        "ThermostatSettings": "Thermostat",
         "NetworkSettings": "Network",
         "NTPSettings": "NTP",
         "MQTTSettings": "MQTT",
@@ -1305,5 +1306,18 @@
                 "invalid": "@:battery.invalid"
             }
         }
+    },
+    "thermostat": {
+        "CurrentStatus": "Live Status",
+        "CurrentTemp": "Current Temperature",
+        "CurrentHum": "Current Humidity",
+        "StatusHeating": "HEATING",
+        "StatusCooling": "COOLING",
+        "StatusIdle": "IDLE",
+        "Disconnected": "OFFLINE",
+        "GeneralSettings": "General Settings",
+        "HeaterThreshold": "Heater Threshold",
+        "CoolerThreshold": "Cooler Threshold",
+        "EnableControl": "Enable Thermostat"
     }
 }

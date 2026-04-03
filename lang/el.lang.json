@@ -17,6 +17,7 @@
         "menu": {
             "LiveView": "Προβολή Τηλεμετρίας",
             "Settings": "Ρυθμίσεις",
+            "ThermostatSettings": "Θερμοστάτης",
             "NetworkSettings": "Ρυθμίσεις Δικτύου",
             "NTPSettings": "NTP Ρυθμίσεις",
             "MQTTSettings": "MQTT Ρυθμίσεις",
@@ -730,6 +731,20 @@
             "log_info": "(I) Info",
             "log_debug": "(D) Debug",
             "log_verbose": "(V) Verbose"
+        },
+        "thermostat": {
+            "CurrentStatus": "Ζωντανή Κατάσταση",
+            "CurrentTemp": "Τρέχουσα Θερμοκρασία",
+            "CurrentHum": "Τρέχουσα Υγρασία",
+            "StatusHeating": "ΘΕΡΜΑΝΣΗ",
+            "StatusCooling": "ΨΥΞΗ",
+            "StatusIdle": "ΑΔΡΑΝΕΙΑ",
+            "Disconnected": "ΑΠΟΣΥΝΔΕΔΕΜΕΝΟ",
+            "GeneralSettings": "Γενικές Ρυθμίσεις",
+            "HeaterThreshold": "Όριο Θερμαντήρα",
+            "CoolerThreshold": "Όριο Ψύκτη",
+            "EnableControl": "Ενεργοποίηση Θερμοστάτη"
+        },
         }
     }
 }

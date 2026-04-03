@@ -76,6 +76,10 @@ struct PinMapping_t {
     gpio_num_t powermeter_dere;
     gpio_num_t powermeter_rxen;
     gpio_num_t powermeter_txen;
+    gpio_num_t thermostat_sensor_sda;
+    gpio_num_t thermostat_sensor_scl;
+    gpio_num_t thermostat_heating;
+    gpio_num_t thermostat_cooling;
 };
 
 class PinMappingClass {

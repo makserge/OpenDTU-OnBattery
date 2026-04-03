@@ -24,6 +24,7 @@ import NtpInfoView from '@/views/NtpInfoView.vue';
 import SecurityAdminView from '@/views/SecurityAdminView.vue';
 import SystemInfoView from '@/views/SystemInfoView.vue';
 import WaitRestartView from '@/views/WaitRestartView.vue';
+import ThermostatAdminView from '@/views/ThermostatAdminView.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
@@ -81,6 +82,11 @@ const router = createRouter({
             path: '/info/console',
             name: 'Web Console',
             component: ConsoleInfoView,
+        },
+        {
+            path: '/settings/thermostat',
+            name: 'Thermostat Settings',
+            component: ThermostatAdminView,
         },
         {
             path: '/settings/network',

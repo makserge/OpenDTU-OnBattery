@@ -1,18 +1,19 @@
-{
-  "name": "Waveshare ESP32-P4-ETH Solar controller",
-  "eth_phy_type": 1, 
-  "eth_mdc_pin": 31,
-  "eth_mdio_pin": 52,
-  "eth_power_pin": 51,
-  "eth_clk_mode": 1,
-  "eth_clk_pin": 50,
-  "eth_addr": 1,
-  "nrf24": {
-    "miso": 19,
-    "mosi": 23,
-    "clk": 18,
-    "cs": 20,
-    "en": 5, 
-    "irq": 4 
-  }
-}
+[
+    {
+        "name": "Waveshare ESP32-P4-ETH Solar controller",
+        "nrf24": {
+          "miso": 21,
+          "mosi": 22,
+          "clk": 27,
+          "irq": 20,
+          "en": 23,
+          "cs": 26
+        },
+        "thermostat": {
+          "sensor_sda": 15,
+          "sensor_scl": 16,
+          "cooling": 18,
+          "heating": 19
+        },
+    }
+]

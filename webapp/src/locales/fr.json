@@ -2,6 +2,7 @@
     "menu": {
         "LiveView": "Direct",
         "Settings": "Paramètres",
+        "ThermostatSettings": "Thermostat",
         "NetworkSettings": "Réseau",
         "NTPSettings": "Heure locale",
         "MQTTSettings": "MQTT",
@@ -1033,5 +1034,17 @@
         "remainInTime": "Remaining charge time",
         "unavail": "N/A",
         "useableCapacity": "Useable capacity"
+    },
+    "thermostat": {
+        "CurrentStatus": "État en direct",
+        "CurrentTemp": "Temp. actuelle",
+        "StatusHeating": "CHAUFFAGE",
+        "StatusCooling": "REFROIDISSEMENT",
+        "StatusIdle": "VEILLE",
+        "Disconnected": "HORS LIGNE",
+        "GeneralSettings": "Paramètres généraux",
+        "HeaterThreshold": "Seuil de chauffage",
+        "CoolerThreshold": "Seuil de refroidissement",
+        "EnableControl": "Activer le thermostat"
     }
 }

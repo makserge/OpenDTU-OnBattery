@@ -242,6 +242,22 @@ static const char* TAG = "pinmapping";
 #define POWERMETER_PIN_RXEN GPIO_NUM_NC
 #endif
 
+#ifndef THERMOSTAT_PIN_SENSOR_SDA
+#define THERMOSTAT_PIN_SENSOR_SDA GPIO_NUM_NC
+#endif
+
+#ifndef THERMOSTAT_PIN_SENSOR_SCL
+#define THERMOSTAT_PIN_SENSOR_SCL GPIO_NUM_NC
+#endif
+
+#ifndef THERMOSTAT_PIN_HEATING
+#define THERMOSTAT_PIN_HEATING GPIO_NUM_NC
+#endif
+
+#ifndef THERMOSTAT_PIN_COOLING
+#define THERMOSTAT_PIN_COOLING GPIO_NUM_NC
+#endif
+
 PinMappingClass PinMapping;
 
 PinMappingClass::PinMappingClass()
@@ -431,6 +447,11 @@ bool PinMappingClass::init(const String& deviceMapping)
             _pinMapping.powermeter_rxen = doc[i]["powermeter"]["rxen"] | POWERMETER_PIN_RXEN;
             _pinMapping.powermeter_txen = doc[i]["powermeter"]["txen"] | POWERMETER_PIN_TXEN;
 
+            _pinMapping.thermostat_sensor_sda  = doc[i]["thermostat"]["sensor_sda"] | THERMOSTAT_PIN_SENSOR_SDA;
+            _pinMapping.thermostat_sensor_scl = doc[i]["thermostat"]["sensor_scl"] | THERMOSTAT_PIN_SENSOR_SCL;
+            _pinMapping.thermostat_cooling = doc[i]["thermostat"]["cooling"] | THERMOSTAT_PIN_COOLING;
+            _pinMapping.thermostat_heating = doc[i]["thermostat"]["heating"] | THERMOSTAT_PIN_HEATING;
+            
             return true;
         }
     }

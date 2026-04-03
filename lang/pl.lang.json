@@ -17,6 +17,7 @@
         "menu": {
             "LiveView": "Dane na żywo",
             "Settings": "Ustawienia",
+            "ThermostatSettings": "Termostat",
             "NetworkSettings": "Ustawienia sieciowe",
             "NTPSettings": "Ustawienia serwera NTP",
             "MQTTSettings": "Ustawienia serwera MQTT",
@@ -730,6 +731,20 @@
             "log_info": "(I) Info",
             "log_debug": "(D) Debug",
             "log_verbose": "(V) Verbose"
+        },
+        "thermostat": {
+            "CurrentStatus": "Status na żywo",
+            "CurrentTemp": "Aktualna temperatura",
+            "CurrentHum": "Aktualna wilgotność",
+            "StatusHeating": "OGRZEWANIE",
+            "StatusCooling": "CHŁODZENIE",
+            "StatusIdle": "OCZEKIWANIE",
+            "Disconnected": "ROZŁĄCZONO",
+            "GeneralSettings": "Ustawienia ogólne",
+            "HeaterThreshold": "Próg grzejnika",
+            "CoolerThreshold": "Próg chłodnicy",
+            "EnableControl": "Włącz termostat"
+        },
         }
     }
 }

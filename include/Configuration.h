@@ -316,6 +316,13 @@ struct SOLAR_CHARGER_CONFIG_T {
 };
 using SolarChargerConfig = struct SOLAR_CHARGER_CONFIG_T;
 
+struct THERMOSTAT_CONFIG_T {
+    bool Enabled;
+    float LowTemp;
+    float HighTemp;
+};
+using ThermostatConfig = struct THERMOSTAT_CONFIG_T;
+
 struct CONFIG_T {
     struct {
         uint32_t Version;
@@ -453,6 +460,8 @@ struct CONFIG_T {
             int8_t Level;
         } Modules[LOG_MODULE_COUNT];
     } Logging;
+
+    ThermostatConfig Thermostat;
 };
 
 class ConfigurationClass {
@@ -499,6 +508,7 @@ public:
     static void serializeGridChargerCanConfig(GridChargerCanConfig const& source, JsonObject& target);
     static void serializeGridChargerHuaweiConfig(GridChargerHuaweiConfig const& source, JsonObject& target);
     static void serializeGridChargerTruckiConfig(GridChargerTruckiConfig const& source, JsonObject& target);
+    static void serializeThermostatConfig(ThermostatConfig const& source, JsonObject& target);
 
     static void deserializeHttpRequestConfig(JsonObject const& source_http_config, HttpRequestConfig& target);
     static void deserializeSolarChargerConfig(JsonObject const& source, SolarChargerConfig& target);
@@ -517,6 +527,7 @@ public:
     static void deserializeGridChargerCanConfig(JsonObject const& source, GridChargerCanConfig& target);
     static void deserializeGridChargerHuaweiConfig(JsonObject const& source, GridChargerHuaweiConfig& target);
     static void deserializeGridChargerTruckiConfig(JsonObject const& source, GridChargerTruckiConfig& target);
+    static void deserializeThermostatConfig(JsonObject const& source, ThermostatConfig& target);
 
 private:
     void loop();

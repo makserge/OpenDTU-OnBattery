@@ -26,6 +26,11 @@ std::optional<uint8_t> SpiManager::to_arduino(spi_host_device_t host_device)
         return FSPI;
     case SPI3_HOST:
         return HSPI;
+#elif CONFIG_IDF_TARGET_ESP32P4
+    case SPI2_HOST:
+        return 0;
+    case SPI3_HOST:
+        return 1;
 #elif CONFIG_IDF_TARGET_ESP32C3
     case SPI2_HOST:
         return FSPI;
