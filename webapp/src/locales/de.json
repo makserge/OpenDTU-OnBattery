@@ -4,6 +4,7 @@
         "Settings": "Einstellungen",
         "ThermostatSettings": "Thermostat",
         "PowerMeterBlSettings": "Stromzähler BL",
+        "RelaySettings": "Relais",
         "NetworkSettings": "Netzwerk",
         "NTPSettings": "NTP",
         "MQTTSettings": "MQTT",
@@ -1327,5 +1328,10 @@
         "Current": "Stromstärke",
         "Voltage": "Spannung"
     },
+    "relay": {
+        "Disconnected": "OFFLINE",
+        "GeneralSettings": "Allgemeine Einstellungen",
+        "Relay1": "Relais 1",
+        "Relay2": "Relais 2"
     }
 }

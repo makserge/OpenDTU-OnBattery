@@ -82,6 +82,8 @@ struct PinMapping_t {
     gpio_num_t thermostat_cooling;
     gpio_num_t powermeter_bl_rx;
     gpio_num_t powermeter_bl_tx;
+    gpio_num_t relay_relay1;
+    gpio_num_t relay_relay2;
 };
 
 class PinMappingClass {

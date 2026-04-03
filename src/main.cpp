@@ -34,6 +34,7 @@
 #include <solarcharger/Controller.h>
 #include <thermostat/Controller.h>
 #include <powermeter_bl/Controller.h>
+#include <relay/Controller.h>
 #include <Arduino.h>
 #include <LittleFS.h>
 #include <TaskScheduler.h>
@@ -154,6 +155,7 @@ void setup()
     Battery.init(scheduler);
     Thermostat.init(scheduler);
     PowermeterBl.init(scheduler);
+    Relay.init(scheduler);
 
     ESP_LOGI(TAG, "Startup complete");
 }

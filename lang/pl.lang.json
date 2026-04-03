@@ -19,6 +19,7 @@
             "Settings": "Ustawienia",
             "ThermostatSettings": "Termostat",
             "PowerMeterBlSettings": "Licznik mocy BL",
+            "RelaySettings": "Ustawienia przekaźnika",
             "NetworkSettings": "Ustawienia sieciowe",
             "NTPSettings": "Ustawienia serwera NTP",
             "MQTTSettings": "Ustawienia serwera MQTT",
@@ -755,6 +756,11 @@
             "Current": "Natężenie",
             "Voltage": "Napięcie"
         },
+        "relay": {
+            "GeneralSettings": "Ustawienia ogólne",
+            "Relay 1": "Przekaźnik 1",
+            "Relay 2": "Przekaźnik 2",
+            "Relay 3": "Przekaźnik 3"
         }
     }
 }

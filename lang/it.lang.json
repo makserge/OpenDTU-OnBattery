@@ -20,6 +20,7 @@
             "ThermostatSettings": "Termostato",
             "PowerMeterBlSettings": "Contatore di potenza BL",
             "NetworkSettings": "Impostazioni di rete",
+            "RelaySettings": "Impostazioni relè",
             "NTPSettings": "Impostazioni NTP",
             "MQTTSettings": "Impostazioni MQTT",
             "InverterSettings": "Impostazioni Inverter",
@@ -755,6 +756,11 @@
             "Current": "Corrente",
             "Voltage": "Tensione"
         },
+        "relay": {
+            "GeneralSettings": "Impostazioni generali",
+            "Relay 1": "Relè 1",
+            "Relay 2": "Relè 2",
+            "Relay 3": "Relè 3"
         }
     }
 }

@@ -4,6 +4,7 @@
         "Settings": "Paramètres",
         "ThermostatSettings": "Thermostat",
         "PowerMeterBlSettings": "Power Meter BL",
+        "RelaySettings": "Relais",
         "NetworkSettings": "Réseau",
         "NTPSettings": "Heure locale",
         "MQTTSettings": "MQTT",
@@ -1058,5 +1059,10 @@
         "Current": "Courant",
         "Voltage": "Tension"
     },
+    "relay": {
+        "Disconnected": "HORS LIGNE",
+        "GeneralSettings": "Paramètres généraux",
+        "Relay1": "Relais 1",
+        "Relay2": "Relais 2"
     }
 }

@@ -19,6 +19,7 @@
             "Settings": "Ρυθμίσεις",
             "ThermostatSettings": "Θερμοστάτης",
             "PowerMeterBlSettings": "Μετρητής Ισχύος BL",
+            "RelaySettings": "Ρελέ",
             "NetworkSettings": "Ρυθμίσεις Δικτύου",
             "NTPSettings": "NTP Ρυθμίσεις",
             "MQTTSettings": "MQTT Ρυθμίσεις",
@@ -755,6 +756,11 @@
             "Current": "Ένταση Ρεύματος",
             "Voltage": "Τάση"
         },
+        "relay": {
+            "GeneralSettings": "Γενικές Ρυθμίσεις",
+            "Relay 1": "Ρελέ 1",
+            "Relay 2": "Ρελέ 2",
+            "Relay 3": "Ρελέ 3"
         }
     }
 }

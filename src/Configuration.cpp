@@ -278,6 +278,12 @@ void ConfigurationClass::serializePowermeterBlConfig(PowermeterBlConfig const& s
     target["polling_interval"]  = source.PollingInterval;
 }
 
+void ConfigurationClass::serializeRelayConfig(RelayConfig const& source, JsonObject& target) 
+{
+    target["relay1_enabled"]   = source.Relay1Enabled;
+    target["relay2_enabled"]   = source.Relay2Enabled;
+}
+
 bool ConfigurationClass::write()
 {
     File f = LittleFS.open(CONFIG_FILENAME, "w");
@@ -474,6 +480,10 @@ bool ConfigurationClass::write()
 
     JsonObject powermeter_bl = doc["powermeter_bl"].to<JsonObject>();
     serializePowermeterBlConfig(config.PowermeterBl, powermeter_bl);
+
+    JsonObject relay = doc["relay"].to<JsonObject>();
+    serializeRelayConfig(config.Relay, relay);
+
     if (!Utils::checkJsonAlloc(doc, __FUNCTION__, __LINE__)) {
         return false;
     }
@@ -729,6 +739,12 @@ void ConfigurationClass::deserializePowermeterBlConfig(JsonObject const& source,
     target.PollingInterval  = source["polling_interval"] | 5;
 }
 
+void ConfigurationClass::deserializeRelayConfig(JsonObject const& source, RelayConfig& target) 
+{
+    target.Relay1Enabled  = source["relay1_enabled"] | false;
+    target.Relay2Enabled  = source["relay2_enabled"] | false;
+}
+
 bool ConfigurationClass::read()
 {
     File f = LittleFS.open(CONFIG_FILENAME, "r", false);
@@ -949,6 +965,9 @@ bool ConfigurationClass::read()
 
     JsonObject powermeter_bl = doc["powermeter_bl"];
     deserializePowermeterBlConfig(powermeter_bl, config.PowermeterBl);
+
+    JsonObject relay = doc["relay"];
+    deserializeRelayConfig(relay, config.Relay);
 
     f.close();
 

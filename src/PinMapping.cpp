@@ -266,6 +266,14 @@ static const char* TAG = "pinmapping";
 #define POWERMETER_BL_PIN_TX GPIO_NUM_NC
 #endif
 
+#ifndef RELAY_PIN_RELAY1
+#define RELAY_PIN_RELAY1 GPIO_NUM_NC
+#endif
+
+#ifndef RELAY_PIN_RELAY2
+#define RELAY_PIN_RELAY2 GPIO_NUM_NC
+#endif
+
 PinMappingClass PinMapping;
 
 PinMappingClass::PinMappingClass()
@@ -463,6 +471,9 @@ bool PinMappingClass::init(const String& deviceMapping)
             _pinMapping.powermeter_bl_rx = doc[i]["powermeter_bl"]["rx"] | POWERMETER_BL_PIN_RX;
             _pinMapping.powermeter_bl_tx = doc[i]["powermeter_bl"]["tx"] | POWERMETER_BL_PIN_TX;
 
+            _pinMapping.relay_relay1  = doc[i]["relay"]["relay1"] | RELAY_PIN_RELAY1;
+            _pinMapping.relay_relay2  = doc[i]["relay"]["relay2"] | RELAY_PIN_RELAY2;
+            
             return true;
         }
     }

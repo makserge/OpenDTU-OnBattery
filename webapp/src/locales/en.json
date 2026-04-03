@@ -4,6 +4,7 @@
         "Settings": "Settings",
         "ThermostatSettings": "Thermostat",
         "PowerMeterBlSettings": "Power Meter BL",
+        "RelaySettings": "Relays",
         "NetworkSettings": "Network",
         "NTPSettings": "NTP",
         "MQTTSettings": "MQTT",
@@ -1331,5 +1332,10 @@
         "Current": "Current",
         "Voltage": "Voltage"
     },
+    "relay": {
+        "Disconnected": "OFFLINE",
+        "GeneralSettings": "General settings",
+        "Relay1": "Relay 1",
+        "Relay2": "Relay 2"
     }
 }

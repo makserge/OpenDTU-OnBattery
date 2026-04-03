@@ -49,6 +49,7 @@ void WebApiClass::init(Scheduler& scheduler)
     _webApiWsBatteryLive.init(_server, scheduler);
     _webApiThermostat.init(_server, scheduler);
     _webApiPowerMeterBl.init(_server, scheduler);
+    _webApiRelay.init(_server, scheduler);
 
     _server.begin();
 }

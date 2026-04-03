@@ -139,6 +139,9 @@ void WebApiDeviceClass::onDeviceAdminGet(AsyncWebServerRequest* request)
     powermeterBlPinObj["rx"] = pin.powermeter_bl_rx;
     powermeterBlPinObj["tx"] = pin.powermeter_bl_tx;
     
+    auto relayPinObj = curPin["relay"].to<JsonObject>();
+    relayPinObj["relay1"] = pin.relay_relay1;
+    relayPinObj["relay2"] = pin.relay_relay2;
     WebApi.sendJsonResponse(request, response, __FUNCTION__, __LINE__);
 }
 

@@ -329,6 +329,12 @@ struct POWERMETER_BL_CONFIG_T {
 };
 using PowermeterBlConfig = struct POWERMETER_BL_CONFIG_T;
 
+struct RELAY_CONFIG_T {
+    bool Relay1Enabled;
+    bool Relay2Enabled;
+};
+using RelayConfig = struct RELAY_CONFIG_T;
+
 struct CONFIG_T {
     struct {
         uint32_t Version;
@@ -470,6 +476,8 @@ struct CONFIG_T {
     ThermostatConfig Thermostat;
 
     PowermeterBlConfig PowermeterBl;
+
+    RelayConfig Relay;
 };
 
 class ConfigurationClass {
@@ -518,6 +526,7 @@ public:
     static void serializeGridChargerTruckiConfig(GridChargerTruckiConfig const& source, JsonObject& target);
     static void serializeThermostatConfig(ThermostatConfig const& source, JsonObject& target);
     static void serializePowermeterBlConfig(PowermeterBlConfig const& source, JsonObject& target);
+    static void serializeRelayConfig(RelayConfig const& source, JsonObject& target);
 
     static void deserializeHttpRequestConfig(JsonObject const& source_http_config, HttpRequestConfig& target);
     static void deserializeSolarChargerConfig(JsonObject const& source, SolarChargerConfig& target);
@@ -538,6 +547,7 @@ public:
     static void deserializeGridChargerTruckiConfig(JsonObject const& source, GridChargerTruckiConfig& target);
     static void deserializeThermostatConfig(JsonObject const& source, ThermostatConfig& target);
     static void deserializePowermeterBlConfig(JsonObject const& source, PowermeterBlConfig& target);
+    static void deserializeRelayConfig(JsonObject const& source, RelayConfig& target);
 
 private:
     void loop();
