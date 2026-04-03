@@ -135,6 +135,10 @@ void WebApiDeviceClass::onDeviceAdminGet(AsyncWebServerRequest* request)
     thermostatPinObj["heating"] = pin.thermostat_heating;
     thermostatPinObj["cooling"] = pin.thermostat_cooling;
     
+    auto powermeterBlPinObj = curPin["powermeter_bl"].to<JsonObject>();
+    powermeterBlPinObj["rx"] = pin.powermeter_bl_rx;
+    powermeterBlPinObj["tx"] = pin.powermeter_bl_tx;
+    
     WebApi.sendJsonResponse(request, response, __FUNCTION__, __LINE__);
 }
 

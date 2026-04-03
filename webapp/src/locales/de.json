@@ -3,6 +3,7 @@
         "LiveView": "Live-Ansicht",
         "Settings": "Einstellungen",
         "ThermostatSettings": "Thermostat",
+        "PowerMeterBlSettings": "Stromzähler BL",
         "NetworkSettings": "Netzwerk",
         "NTPSettings": "NTP",
         "MQTTSettings": "MQTT",
@@ -1315,5 +1316,16 @@
         "HeaterThreshold": "Heizschwelle",
         "CoolerThreshold": "Kühlschwelle",
         "EnableControl": "Thermostat aktivieren"
+    },
+    "powermeterbl": {
+        "CurrentStatus": "Live-Status",
+        "Disconnected": "OFFLINE",
+        "GeneralSettings": "Allgemeine Einstellungen",
+        "EnableControl": "Leistungsmesser aktivieren",
+        "Power": "Wirkleistung",
+        "ApparentPower": "Scheinleistung",
+        "Current": "Stromstärke",
+        "Voltage": "Spannung"
+    },
     }
 }

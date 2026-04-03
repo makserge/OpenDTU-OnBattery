@@ -33,6 +33,7 @@
 #include "defaults.h"
 #include <solarcharger/Controller.h>
 #include <thermostat/Controller.h>
+#include <powermeter_bl/Controller.h>
 #include <Arduino.h>
 #include <LittleFS.h>
 #include <TaskScheduler.h>
@@ -152,6 +153,7 @@ void setup()
     GridCharger.init(scheduler);
     Battery.init(scheduler);
     Thermostat.init(scheduler);
+    PowermeterBl.init(scheduler);
 
     ESP_LOGI(TAG, "Startup complete");
 }

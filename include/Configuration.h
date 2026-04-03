@@ -323,6 +323,12 @@ struct THERMOSTAT_CONFIG_T {
 };
 using ThermostatConfig = struct THERMOSTAT_CONFIG_T;
 
+struct POWERMETER_BL_CONFIG_T {
+    bool Enabled;
+    uint32_t PollingInterval;   
+};
+using PowermeterBlConfig = struct POWERMETER_BL_CONFIG_T;
+
 struct CONFIG_T {
     struct {
         uint32_t Version;
@@ -462,6 +468,8 @@ struct CONFIG_T {
     } Logging;
 
     ThermostatConfig Thermostat;
+
+    PowermeterBlConfig PowermeterBl;
 };
 
 class ConfigurationClass {
@@ -509,6 +517,7 @@ public:
     static void serializeGridChargerHuaweiConfig(GridChargerHuaweiConfig const& source, JsonObject& target);
     static void serializeGridChargerTruckiConfig(GridChargerTruckiConfig const& source, JsonObject& target);
     static void serializeThermostatConfig(ThermostatConfig const& source, JsonObject& target);
+    static void serializePowermeterBlConfig(PowermeterBlConfig const& source, JsonObject& target);
 
     static void deserializeHttpRequestConfig(JsonObject const& source_http_config, HttpRequestConfig& target);
     static void deserializeSolarChargerConfig(JsonObject const& source, SolarChargerConfig& target);
@@ -528,6 +537,7 @@ public:
     static void deserializeGridChargerHuaweiConfig(JsonObject const& source, GridChargerHuaweiConfig& target);
     static void deserializeGridChargerTruckiConfig(JsonObject const& source, GridChargerTruckiConfig& target);
     static void deserializeThermostatConfig(JsonObject const& source, ThermostatConfig& target);
+    static void deserializePowermeterBlConfig(JsonObject const& source, PowermeterBlConfig& target);
 
 private:
     void loop();

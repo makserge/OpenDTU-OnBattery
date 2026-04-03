@@ -18,6 +18,7 @@
             "LiveView": "Προβολή Τηλεμετρίας",
             "Settings": "Ρυθμίσεις",
             "ThermostatSettings": "Θερμοστάτης",
+            "PowerMeterBlSettings": "Μετρητής Ισχύος BL",
             "NetworkSettings": "Ρυθμίσεις Δικτύου",
             "NTPSettings": "NTP Ρυθμίσεις",
             "MQTTSettings": "MQTT Ρυθμίσεις",
@@ -744,6 +745,15 @@
             "HeaterThreshold": "Όριο Θερμαντήρα",
             "CoolerThreshold": "Όριο Ψύκτη",
             "EnableControl": "Ενεργοποίηση Θερμοστάτη"
+        },
+        "powermeterbl": {
+            "CurrentStatus": "Ζωντανή Κατάσταση",
+            "GeneralSettings": "Γενικές Ρυθμίσεις",
+            "EnableControl": "Ενεργοποίηση Μετρητή Ισχύος",
+            "Power": "Ισχύς",
+            "ApparentPower": "Φαινόμενη Ισχύς",
+            "Current": "Ένταση Ρεύματος",
+            "Voltage": "Τάση"
         },
         }
     }

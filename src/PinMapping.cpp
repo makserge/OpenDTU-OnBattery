@@ -258,6 +258,14 @@ static const char* TAG = "pinmapping";
 #define THERMOSTAT_PIN_COOLING GPIO_NUM_NC
 #endif
 
+#ifndef POWERMETER_BL_PIN_RX
+#define POWERMETER_BL_PIN_RX GPIO_NUM_NC
+#endif
+
+#ifndef POWERMETER_BL_PIN_TX
+#define POWERMETER_BL_PIN_TX GPIO_NUM_NC
+#endif
+
 PinMappingClass PinMapping;
 
 PinMappingClass::PinMappingClass()
@@ -452,6 +460,9 @@ bool PinMappingClass::init(const String& deviceMapping)
             _pinMapping.thermostat_cooling = doc[i]["thermostat"]["cooling"] | THERMOSTAT_PIN_COOLING;
             _pinMapping.thermostat_heating = doc[i]["thermostat"]["heating"] | THERMOSTAT_PIN_HEATING;
             
+            _pinMapping.powermeter_bl_rx = doc[i]["powermeter_bl"]["rx"] | POWERMETER_BL_PIN_RX;
+            _pinMapping.powermeter_bl_tx = doc[i]["powermeter_bl"]["tx"] | POWERMETER_BL_PIN_TX;
+
             return true;
         }
     }

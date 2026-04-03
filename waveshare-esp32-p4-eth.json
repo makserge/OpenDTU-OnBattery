@@ -15,5 +15,9 @@
           "cooling": 18,
           "heating": 19
         },
+        "powermeter_bl": {
+          "tx": 47,
+          "rx": 48
+        },
     }
 ]

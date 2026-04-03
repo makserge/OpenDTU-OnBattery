@@ -47,6 +47,11 @@
                                 }}</router-link>
                             </li>
                             <li>
+                                <router-link @click="onClick" class="dropdown-item" to="/settings/powermeter_bl">{{
+                                    $t('menu.PowerMeterBlSettings')
+                                }}</router-link>
+                            </li>
+                            <li>
                                 <router-link @click="onClick" class="dropdown-item" to="/settings/network">{{
                                     $t('menu.NetworkSettings')
                                 }}</router-link>

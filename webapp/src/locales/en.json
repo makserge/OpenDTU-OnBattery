@@ -3,6 +3,7 @@
         "LiveView": "Live View",
         "Settings": "Settings",
         "ThermostatSettings": "Thermostat",
+        "PowerMeterBlSettings": "Power Meter BL",
         "NetworkSettings": "Network",
         "NTPSettings": "NTP",
         "MQTTSettings": "MQTT",
@@ -1319,5 +1320,16 @@
         "HeaterThreshold": "Heater Threshold",
         "CoolerThreshold": "Cooler Threshold",
         "EnableControl": "Enable Thermostat"
+    },
+    "powermeterbl": {
+        "CurrentStatus": "Live Status",
+        "Disconnected": "OFFLINE",
+        "GeneralSettings": "General Settings",
+        "EnableControl": "Enable Power Meter",
+        "Power": "Power",
+        "ApparentPower": "Apparent Power",
+        "Current": "Current",
+        "Voltage": "Voltage"
+    },
     }
 }

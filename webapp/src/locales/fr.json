@@ -3,6 +3,7 @@
         "LiveView": "Direct",
         "Settings": "Paramètres",
         "ThermostatSettings": "Thermostat",
+        "PowerMeterBlSettings": "Power Meter BL",
         "NetworkSettings": "Réseau",
         "NTPSettings": "Heure locale",
         "MQTTSettings": "MQTT",
@@ -1046,5 +1047,16 @@
         "HeaterThreshold": "Seuil de chauffage",
         "CoolerThreshold": "Seuil de refroidissement",
         "EnableControl": "Activer le thermostat"
+    },
+    "powermeterbl": {
+        "CurrentStatus": "État en direct",
+        "Disconnected": "HORS LIGNE",
+        "GeneralSettings": "Paramètres généraux",
+        "EnableControl": "Activer le wattmètre",
+        "Power": "Puissance",
+        "ApparentPower": "Puissance apparente",
+        "Current": "Courant",
+        "Voltage": "Tension"
+    },
     }
 }

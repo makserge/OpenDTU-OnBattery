@@ -18,6 +18,7 @@
             "LiveView": "Dane na żywo",
             "Settings": "Ustawienia",
             "ThermostatSettings": "Termostat",
+            "PowerMeterBlSettings": "Licznik mocy BL",
             "NetworkSettings": "Ustawienia sieciowe",
             "NTPSettings": "Ustawienia serwera NTP",
             "MQTTSettings": "Ustawienia serwera MQTT",
@@ -744,6 +745,15 @@
             "HeaterThreshold": "Próg grzejnika",
             "CoolerThreshold": "Próg chłodnicy",
             "EnableControl": "Włącz termostat"
+        },
+        "powermeterbl": {
+            "CurrentStatus": "Status na żywo",
+            "GeneralSettings": "Ustawienia ogólne",
+            "EnableControl": "Włącz licznik mocy",
+            "Power": "Moc",
+            "ApparentPower": "Moc pozorna",
+            "Current": "Natężenie",
+            "Voltage": "Napięcie"
         },
         }
     }

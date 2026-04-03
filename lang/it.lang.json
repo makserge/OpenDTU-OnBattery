@@ -18,6 +18,7 @@
             "LiveView": "Dati in tempo reale",
             "Settings": "Impostazioni",
             "ThermostatSettings": "Termostato",
+            "PowerMeterBlSettings": "Contatore di potenza BL",
             "NetworkSettings": "Impostazioni di rete",
             "NTPSettings": "Impostazioni NTP",
             "MQTTSettings": "Impostazioni MQTT",
@@ -744,6 +745,15 @@
             "HeaterThreshold": "Soglia riscaldatore",
             "CoolerThreshold": "Soglia raffreddatore",
             "EnableControl": "Abilita termostato"
+        },
+        "powermeterbl": {
+            "CurrentStatus": "Stato in tempo reale",
+            "GeneralSettings": "Impostazioni generali",
+            "EnableControl": "Abilita misuratore di potenza",
+            "Power": "Potenza",
+            "ApparentPower": "Potenza apparente",
+            "Current": "Corrente",
+            "Voltage": "Tensione"
         },
         }
     }

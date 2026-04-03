@@ -34,6 +34,7 @@
 #include "WebApi_gridcharger.h"
 #include "WebApi_ws_battery.h"
 #include "WebApi_thermostat.h"
+#include "WebApi_powermeter_bl.h"
 #include <ESPAsyncWebServer.h>
 #include <TaskSchedulerDeclarations.h>
 
@@ -88,6 +89,7 @@ private:
     WebApiWsGridChargerLiveClass _webApiWsGridChargerLive;
     WebApiWsBatteryLiveClass _webApiWsBatteryLive;
     WebApiThermostatClass _webApiThermostat;
+    WebApiPowerMeterBlClass _webApiPowerMeterBl;
 };
 
 extern WebApiClass WebApi;

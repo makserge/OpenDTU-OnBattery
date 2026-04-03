@@ -25,6 +25,7 @@ import SecurityAdminView from '@/views/SecurityAdminView.vue';
 import SystemInfoView from '@/views/SystemInfoView.vue';
 import WaitRestartView from '@/views/WaitRestartView.vue';
 import ThermostatAdminView from '@/views/ThermostatAdminView.vue';
+import PowerMeterBlAdminView from '@/views/PowerMeterBlAdminView.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
@@ -87,6 +88,11 @@ const router = createRouter({
             path: '/settings/thermostat',
             name: 'Thermostat Settings',
             component: ThermostatAdminView,
+        },
+        {
+            path: '/settings/powermeter_bl',
+            name: 'Power Meter BL Settings',
+            component: PowerMeterBlAdminView,
         },
         {
             path: '/settings/network',

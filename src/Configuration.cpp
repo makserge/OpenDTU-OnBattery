@@ -272,6 +272,12 @@ void ConfigurationClass::serializeThermostatConfig(ThermostatConfig const& sourc
     target["high_temp"] = source.HighTemp;
 }
 
+void ConfigurationClass::serializePowermeterBlConfig(PowermeterBlConfig const& source, JsonObject& target) 
+{
+    target["enabled"]   = source.Enabled;
+    target["polling_interval"]  = source.PollingInterval;
+}
+
 bool ConfigurationClass::write()
 {
     File f = LittleFS.open(CONFIG_FILENAME, "w");
@@ -465,7 +471,9 @@ bool ConfigurationClass::write()
 
     JsonObject thermostat = doc["thermostat"].to<JsonObject>();
     serializeThermostatConfig(config.Thermostat, thermostat);
-    
+
+    JsonObject powermeter_bl = doc["powermeter_bl"].to<JsonObject>();
+    serializePowermeterBlConfig(config.PowermeterBl, powermeter_bl);
     if (!Utils::checkJsonAlloc(doc, __FUNCTION__, __LINE__)) {
         return false;
     }
@@ -715,6 +723,12 @@ void ConfigurationClass::deserializeThermostatConfig(JsonObject const& source, T
     target.HighTemp = source["high_temp"] | 35.0f;
 }
 
+void ConfigurationClass::deserializePowermeterBlConfig(JsonObject const& source, PowermeterBlConfig& target) 
+{
+    target.Enabled  = source["enabled"] | false;
+    target.PollingInterval  = source["polling_interval"] | 5;
+}
+
 bool ConfigurationClass::read()
 {
     File f = LittleFS.open(CONFIG_FILENAME, "r", false);
@@ -932,6 +946,9 @@ bool ConfigurationClass::read()
 
     JsonObject thermostat = doc["thermostat"];
     deserializeThermostatConfig(thermostat, config.Thermostat);
+
+    JsonObject powermeter_bl = doc["powermeter_bl"];
+    deserializePowermeterBlConfig(powermeter_bl, config.PowermeterBl);
 
     f.close();
 
