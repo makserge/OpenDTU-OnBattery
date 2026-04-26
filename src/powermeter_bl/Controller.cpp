@@ -21,15 +21,22 @@ namespace PowermeterBls
 
         if (rxPin != -1 && txPin != -1)
         {
-            Serial1.begin(BL0942_BAUD, SERIAL_8N1, rxPin, txPin);
-            delay(100);
-            _sensor = std::make_unique<bl0942::BL0942>(Serial1);
+            auto oHwSerialPort = SerialPortManager.allocatePort("PowermeterBL");
+            if (!oHwSerialPort) {
+                ESP_LOGI(TAG, "PowermeterBL: Unable to allocate serial port");
+                return;
+            }
+            _serial = std::make_unique<HardwareSerial>(*oHwSerialPort);
+            _serial->begin(BL0942_BAUD, SERIAL_8N1, rxPin, txPin);
+            delay(1000);
+            while(_serial->available()) _serial->read();
+            _sensor = std::make_unique<bl0942::BL0942>(*_serial);
             _sensor->setup();
             _sensor->onDataReceived([this](bl0942::SensorData &data)
             {
-                _power = std::round(data.watt * 100.0f) / 100.0f;
+                _power = std::round(data.watt * POWER_CALIBRATION  * 100.0f) / 100.0f;
                 _voltage = std::round(data.voltage * 100.0f) / 100.0f;
-                _current = std::round(data.current * 100.0f) / 100.0f;
+                _current = std::round(data.current * CURRENT_CALIBRATION * 100.0f) / 100.0f;
                 _apparentPower = std::round(_voltage * _current * 100.0f) / 100.0f;
             });
 

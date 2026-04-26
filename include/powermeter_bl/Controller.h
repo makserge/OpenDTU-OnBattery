@@ -1,6 +1,7 @@
 #pragma once
 
 #include <TaskSchedulerDeclarations.h>
+#include <SerialPortManager.h>
 #include <BL0942.h>
 #include <memory>
 #include <mutex>
@@ -22,7 +23,10 @@ private:
     void mqttLoop();
 
     static constexpr uint32_t BL0942_BAUD = 4800;
-    
+    static constexpr float CURRENT_CALIBRATION = 0.0701;
+    static constexpr float POWER_CALIBRATION = 0.105;
+
+    std::unique_ptr<HardwareSerial> _serial;
     std::unique_ptr<bl0942::BL0942> _sensor;
     Task _loopTask;
     Task _mqttLoopTask;
