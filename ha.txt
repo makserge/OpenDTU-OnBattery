@@ -1,0 +1,71 @@
+1. Add thermostat and meter status to configuration.yaml
+
+  mqtt:
+  binary_sensor:
+    - name: "PV box fan cooling"
+      state_topic: "solar_lan/thermostat/status"
+      payload_on: true
+      payload_off: false
+      value_template: "{{ value_json.cooling }}"
+      unique_id: "thermostat_pv_cooling"
+    - name: "PV box fan heating"
+      state_topic: "solar_lan/thermostat/status"
+      payload_on: true
+      payload_off: false
+      value_template: "{{ value_json.heating }}"
+      unique_id: "thermostat_pv_heating"
+
+  sensor:
+    - name: "PV box internal temperature"
+      state_topic: "solar_lan/thermostat/status"
+      unit_of_measurement: "℃"
+      value_template: '{{ value_json.temp }}'
+      unique_id: "thermostat_pv_temperature"
+    - name: "PV box internal humidity"
+      state_topic: "solar_lan/thermostat/status"
+      unit_of_measurement: "%"
+      value_template: '{{ value_json.hum }}'
+      unique_id: "thermostat_pv_humidity"
+    - name: "PV box meter current"
+      state_topic: "solar_lan/powermeter_bl/status"
+      unit_of_measurement: "A"
+      value_template: '{{ value_json.current }}'
+      unique_id: "powermeter_pv_current"
+    - name: "PV box meter voltage"
+      state_topic: "solar_lan/powermeter_bl/status"
+      unit_of_measurement: "V"
+      value_template: '{{ value_json.voltage }}'
+      unique_id: "powermeter_pv_voltage"
+    - name: "PV box meter power"
+      state_topic: "solar_lan/powermeter_bl/status"
+
+2. Add to dashboard manual card
+
+type: entities
+entities:
+  - entity: sensor.pv_box_internal_temperature
+    name: Temperature
+    icon: mdi:thermometer
+  - entity: sensor.pv_box_internal_humidity
+    icon: mdi:water-percent
+    name: Humidity
+  - entity: binary_sensor.pv_box_fan_cooling
+    name: Cooling fan
+    icon: mdi:fan
+  - entity: binary_sensor.pv_box_fan_heating
+    name: Heating
+    icon: mdi:radiator
+  - entity: sensor.pv_box_meter_power
+    icon: mdi:flash
+    name: Power
+  - entity: sensor.pv_box_meter_current
+    name: Current
+    icon: mdi:current-ac
+  - entity: sensor.pv_box_meter_voltage
+    name: Voltage
+    icon: mdi:sine-wave
+title: PV box
+
+      unit_of_measurement: "W"
+      value_template: '{{ value_json.apparent_power }}'
+      unique_id: "powermeter_pv_power"
