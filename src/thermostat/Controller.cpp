@@ -87,22 +87,20 @@ void Controller::loop()
         return;
     }
     if (_heatingPin != -1) {
-        if (_currentTemp < _lowTemp) {
-            digitalWrite(_heatingPin, HIGH);
+        if (!_heatingActive && _currentTemp < _lowTemp) {
             _heatingActive = true;
-        } else {
-            digitalWrite(_heatingPin, LOW);
+        } else if (_heatingActive && _currentTemp >= _lowTemp + _hysteresis) {
             _heatingActive = false;
         }
+        digitalWrite(_heatingPin, _heatingActive ? HIGH : LOW);
     }
     if (_coolingPin != -1) {
-        if (_currentTemp > _highTemp) {
-            digitalWrite(_coolingPin, HIGH);
+        if (!_coolingActive && _currentTemp > _highTemp) {
             _coolingActive = true;
-        } else {
-            digitalWrite(_coolingPin, LOW);
+        } else if (_coolingActive && _currentTemp <= _highTemp - _hysteresis) {
             _coolingActive = false;
         }
+        digitalWrite(_coolingPin, _coolingActive ? HIGH : LOW);
     }
 }
 

@@ -30,7 +30,7 @@ namespace PowermeterBls
             _serial->begin(BL0942_BAUD, SERIAL_8N1, rxPin, txPin);
             delay(1000);
             while(_serial->available()) _serial->read();
-            _sensor = std::make_unique<bl0942::BL0942>(*_serial);
+            _sensor = std::make_unique<BL0942Fixed>(*_serial);
             _sensor->setup();
             _sensor->onDataReceived([this](bl0942::SensorData &data)
             {

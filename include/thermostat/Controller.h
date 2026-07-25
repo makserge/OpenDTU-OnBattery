@@ -35,6 +35,8 @@ private:
     Task _mqttLoopTask;
     mutable std::mutex _mutex;
 
+    static constexpr float _hysteresis = 1.0f;
+
     Adafruit_HTU21DF _htu = Adafruit_HTU21DF();
 
     int8_t _heatingPin;

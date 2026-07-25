@@ -3,6 +3,7 @@
 #include <TaskSchedulerDeclarations.h>
 #include <SerialPortManager.h>
 #include <BL0942.h>
+#include <powermeter_bl/BL0942Fixed.h>
 #include <memory>
 #include <mutex>
 
@@ -27,7 +28,7 @@ private:
     static constexpr float POWER_CALIBRATION = 0.105;
 
     std::unique_ptr<HardwareSerial> _serial;
-    std::unique_ptr<bl0942::BL0942> _sensor;
+    std::unique_ptr<BL0942Fixed> _sensor;
     Task _loopTask;
     Task _mqttLoopTask;
     mutable std::mutex _mutex;
